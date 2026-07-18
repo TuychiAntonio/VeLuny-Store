@@ -27,16 +27,16 @@
           "type": "text",
           "settings": {
             "heading": "About",
-            "subtext": "<p>VeLuny makes practical solutions for the everyday problems of parenting — starting with sleep that travels with you.</p>",
+            "subtext": "<p>VeLuny makes practical solutions for the everyday problems of parenting. <a href=\"/pages/about\">Learn more →</a></p>",
             "width_desktop": 3,
             "width_mobile": "2"
           }
         },
         "help": {
-          "type": "link_list",
+          "type": "text",
           "settings": {
             "heading": "Help",
-            "menu": "footer",
+            "subtext": "<p><a href=\"/pages/faq\">FAQs</a></p><p><a href=\"/pages/contact\">Contact</a></p><p><a href=\"/policies/terms-of-service\">Terms of Service</a></p><p><a href=\"/policies/privacy-policy\">Privacy Policy</a></p><p><a href=\"/pages/shipping-returns\">Shipping Info &amp; Returns</a></p>",
             "width_desktop": 3,
             "width_mobile": "2"
           }

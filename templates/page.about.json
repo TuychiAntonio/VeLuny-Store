@@ -1,0 +1,69 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "rich_text_about": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_about": {
+          "type": "heading",
+          "settings": {
+            "heading": "<p>Our Story</p>",
+            "heading_size": "h1"
+          }
+        },
+        "text_about_1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>VeLuny makes practical solutions for the everyday problems of parenting. We started with sleep — a portable sound machine that brings a soothing, sleep-ready environment anywhere a family goes — because peace shouldn’t be limited to the nursery.</p>"
+          }
+        },
+        "text_about_2": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Our mission is simple: to make parenting’s hardest little moments easier to solve — starting with sleep, and expanding to wherever tired, overwhelmed parents need a smart, simple fix.</p>"
+          }
+        },
+        "text_about_3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>This is VeLuny’s first solution, not our only one. It’s the first of many problems we intend to solve.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_about",
+        "text_about_1",
+        "text_about_2",
+        "text_about_3"
+      ],
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "veluny-cream",
+        "full_width": true,
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_about"
+  ]
+}

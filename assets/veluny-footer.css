@@ -10,6 +10,23 @@
   height: auto;
 }
 
+/* Shop/Help columns are hand-authored links (rte), not Dawn's menu-driven
+   list-menu markup — match that link's look (Quicksand, underline only
+   on hover) so they read consistently with the rest of the footer. */
+.footer-block__details-content.rte p {
+  margin: 0 0 var(--space-1);
+}
+
+.footer-block__details-content.rte a {
+  font-family: var(--font-heading);
+  text-decoration: none;
+}
+
+.footer-block__details-content.rte a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}
+
 /* Accordion — native <details>, real toggle on mobile. A small script
    (see footer.liquid) keeps `open` in sync with the 750px breakpoint,
    since closed-<details> content can't be reliably forced visible by
