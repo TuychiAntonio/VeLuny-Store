@@ -711,9 +711,37 @@
           {
             "value": "inverse",
             "label": "t:sections.all.colors.inverse.label"
+          },
+          {
+            "value": "veluny-ink",
+            "label": "VeLuny Ink"
+          },
+          {
+            "value": "veluny-cream",
+            "label": "VeLuny Cream"
+          },
+          {
+            "value": "veluny-white",
+            "label": "VeLuny White"
+          },
+          {
+            "value": "veluny-dusty-sky",
+            "label": "VeLuny Dusty Sky"
+          },
+          {
+            "value": "veluny-sage",
+            "label": "VeLuny Sage"
+          },
+          {
+            "value": "veluny-blush-nap",
+            "label": "VeLuny Blush Nap"
+          },
+          {
+            "value": "veluny-warm-sand",
+            "label": "VeLuny Warm Sand"
           }
         ],
-        "default": "background-1",
+        "default": "veluny-white",
         "label": "t:sections.all.colors.label"
       },
       {
@@ -868,9 +896,37 @@
           {
             "value": "inverse",
             "label": "t:sections.all.colors.inverse.label"
+          },
+          {
+            "value": "veluny-ink",
+            "label": "VeLuny Ink"
+          },
+          {
+            "value": "veluny-cream",
+            "label": "VeLuny Cream"
+          },
+          {
+            "value": "veluny-white",
+            "label": "VeLuny White"
+          },
+          {
+            "value": "veluny-dusty-sky",
+            "label": "VeLuny Dusty Sky"
+          },
+          {
+            "value": "veluny-sage",
+            "label": "VeLuny Sage"
+          },
+          {
+            "value": "veluny-blush-nap",
+            "label": "VeLuny Blush Nap"
+          },
+          {
+            "value": "veluny-warm-sand",
+            "label": "VeLuny Warm Sand"
           }
         ],
-        "default": "background-2",
+        "default": "veluny-white",
         "label": "t:sections.all.colors.label"
       },
       {
@@ -1025,9 +1081,37 @@
           {
             "value": "inverse",
             "label": "t:sections.all.colors.inverse.label"
+          },
+          {
+            "value": "veluny-ink",
+            "label": "VeLuny Ink"
+          },
+          {
+            "value": "veluny-cream",
+            "label": "VeLuny Cream"
+          },
+          {
+            "value": "veluny-white",
+            "label": "VeLuny White"
+          },
+          {
+            "value": "veluny-dusty-sky",
+            "label": "VeLuny Dusty Sky"
+          },
+          {
+            "value": "veluny-sage",
+            "label": "VeLuny Sage"
+          },
+          {
+            "value": "veluny-blush-nap",
+            "label": "VeLuny Blush Nap"
+          },
+          {
+            "value": "veluny-warm-sand",
+            "label": "VeLuny Warm Sand"
           }
         ],
-        "default": "background-2",
+        "default": "veluny-white",
         "label": "t:sections.all.colors.label"
       },
       {

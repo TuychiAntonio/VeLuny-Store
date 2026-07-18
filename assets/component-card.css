@@ -1,3 +1,14 @@
+/* VeLuny card overrides — source of truth: design-system.md §3.2.
+   Dawn's card corner radius is driven by --product-card-corner-radius /
+   --collection-card-corner-radius / --blog-card-corner-radius (set from
+   theme settings in layout/theme.liquid); overriding those here — rather
+   than --border-radius directly — keeps Dawn's own cascade intact. */
+:root {
+  --product-card-corner-radius: var(--radius-md);
+  --collection-card-corner-radius: var(--radius-md);
+  --blog-card-corner-radius: var(--radius-md);
+}
+
 .product-grid.product-grid--stretch {
   align-items: stretch;
 }
@@ -51,6 +62,21 @@
   border-radius: var(--border-radius);
   border: var(--border-width) solid
     rgba(var(--color-foreground), var(--border-opacity));
+}
+
+/* Hover lift — desktop only, per design-system.md §3.2 */
+@media screen and (min-width: 990px) and (hover: hover) {
+  .card--card,
+  .card--standard .card__inner {
+    transition: box-shadow var(--duration-base) var(--ease-soft),
+      transform var(--duration-base) var(--ease-soft);
+  }
+
+  .card-wrapper:hover .card--card,
+  .card-wrapper:hover .card--standard .card__inner {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-4px);
+  }
 }
 
 .card--card:after,

@@ -1,0 +1,81 @@
+/* VeLuny button + text-link overrides — source of truth: design-system.md §3.1
+   This Dawn build has no standalone component-button.css (button rules live
+   inline in base.css, driven by Dawn's --buttons-* / --color-button custom
+   properties). Kept as its own veluny- file rather than editing base.css
+   directly, so a future Dawn update to base.css doesn't silently clobber
+   brand styling. Must load AFTER base.css so equal-specificity selectors win. */
+
+:root {
+  --buttons-radius: var(--radius-pill);
+  --buttons-radius-outset: var(--radius-pill);
+}
+
+.button,
+.shopify-challenge__button,
+.customer button {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  min-height: 48px;
+  border-radius: var(--radius-pill);
+  transition: box-shadow var(--duration-base) var(--ease-soft),
+    transform var(--duration-base) var(--ease-soft);
+}
+
+/* Primary — Ink fill, Cream text. Set directly rather than through Dawn's
+   --color-button scheme variable so CTAs read the same in any section. */
+.button:not(.button--secondary):not(.button--tertiary) {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+}
+
+@media (hover: hover) {
+  .button:not(.button--secondary):not(.button--tertiary):not([disabled]):hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
+}
+
+/* Primary, on dark (Ink) backgrounds — Cream fill, Ink text. Inverse of the
+   default Primary; opt-in via .button--on-dark, applied per instance rather
+   than auto-detected from the section scheme. Doesn't touch default Primary. */
+.button--on-dark:not(.button--secondary):not(.button--tertiary) {
+  background-color: var(--color-cream);
+  color: var(--color-ink);
+}
+
+@media (hover: hover) {
+  .button--on-dark:not(.button--secondary):not(.button--tertiary):not([disabled]):hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
+}
+
+/* Secondary — Ink outline, transparent fill */
+.button--secondary {
+  background-color: transparent;
+  border: 1.5px solid var(--color-ink);
+  color: var(--color-ink);
+}
+
+@media (hover: hover) {
+  .button--secondary:not([disabled]):hover {
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-2px);
+  }
+}
+
+/* Text link — Ink, underline on hover only */
+.link,
+.customer a {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.link:hover,
+.customer a:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.3rem;
+}

@@ -14,7 +14,7 @@
     "footer": {
       "type": "footer",
       "settings": {
-        "color_scheme": "accent-2",
+        "color_scheme": "veluny-ink",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": true,

@@ -21,6 +21,13 @@
 
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
+{%- liquid
+  assign card_color_scheme = settings.collection_card_color_scheme
+  if cards_color_scheme
+    assign card_color_scheme = cards_color_scheme
+  endif
+-%}
+
 {%- if card_product and card_product != empty -%}
   {%- liquid
     assign ratio = 1
@@ -31,10 +38,6 @@
     endif
     if ratio == 0 or ratio == null
       assign ratio = 1
-    endif
-    assign card_color_scheme = settings.collection_card_color_scheme
-    if cards_color_scheme
-      assign card_color_scheme = cards_color_scheme
     endif
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">

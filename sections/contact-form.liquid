@@ -127,7 +127,7 @@
         </label>
       </div>
       <div class="contact__button">
-        <button type="submit" class="button{% if section.settings.button_full_width %} button--full-width{% endif %}">
+        <button type="submit" class="button{% if section.settings.color_scheme == 'veluny-ink' %} button--on-dark{% endif %}{% if section.settings.button_full_width %} button--full-width{% endif %}">
           {{ 'templates.contact.form.send' | t }}
         </button>
       </div>
@@ -199,6 +199,18 @@
         {
           "value": "inverse",
           "label": "t:sections.all.colors.inverse.label"
+        },
+        {
+          "value": "veluny-ink",
+          "label": "VeLuny Ink"
+        },
+        {
+          "value": "veluny-cream",
+          "label": "VeLuny Cream"
+        },
+        {
+          "value": "veluny-white",
+          "label": "VeLuny White"
         },
         {
           "value": "custom",
