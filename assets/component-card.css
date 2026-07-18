@@ -9,6 +9,13 @@
   --blog-card-corner-radius: var(--radius-md);
 }
 
+/* Product images sit on a Warm Sand backdrop, not transparent/white-cutout —
+   design-system.md §2. Higher specificity than Dawn's .media--transparent
+   (which the card image wrapper uses) so no !important is needed. */
+.card__media .media {
+  background-color: var(--color-warm-sand);
+}
+
 .product-grid.product-grid--stretch {
   align-items: stretch;
 }
