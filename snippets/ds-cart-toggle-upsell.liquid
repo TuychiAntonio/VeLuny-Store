@@ -1,0 +1,260 @@
+{% liquid
+    assign is_toggle_product_in_cart = false
+    for item in cart.items
+        if item.product_id == toggle_prod.id
+            assign is_toggle_product_in_cart = true
+            break
+        endif
+    endfor
+    if settings.display_on_toggle_cart_upsell_2 == true
+        assign is_toggle_product_in_cart = true
+    endif
+%}
+<label for="toggle" class="ds-cart-product-toggle">
+    <div class="ds-cart-product-toggle_content_wrapper">
+        <img src="{{ toggle_prod.featured_image | image_url }}" 
+             alt="{{ toggle_prod.title }}" 
+             class="ds-product-toggle_image" 
+             width="auto" 
+             height="auto"/>
+        <div class="ds-cart-product-toggle_content">
+            <h3 class="ds-cart-product-toggle_title">{{ toggle_prod.title }}</h3>
+            <h3 class="ds-cart-product-toggle_price">{{ toggle_prod.price | money }}</h3>
+        </div>
+    </div>
+    <div class="ds-cart-product-toggle_swatch">
+        <div class="toggle-switch">
+            <input class="toggle-input" id="toggle" type="checkbox" disabled {% if is_toggle_product_in_cart %}checked{% endif %}>
+            <label class="toggle-label" for="toggle"></label>
+        </div>
+    </div>
+</label>
+
+
+<script>
+class UpsellProductToggle {
+    constructor() {
+        this.productID = {{toggle_prod.variants[0].id}};
+        this.isOnlyProduuctInCart = false;
+        // Initialize
+        this.init();
+    }
+    async init(){
+        this.toggle = document.querySelector('.ds-cart-product-toggle .ds-cart-product-toggle_swatch .toggle-input');
+        // Event Listener
+        this.toggle.addEventListener('change', this.toggleProduct.bind(this));
+        
+
+        // Check if product is in cart - not surely necessary
+        // this.checkProduct();
+
+        this.toggle.disabled = false;
+        
+    }
+
+
+    async toggleProduct() {
+        try {
+            this.toggle.disabled = true;
+            if (this.toggle.checked) {
+                await this.addProduct();
+                this.refreshCart();
+            } else {
+                await this.removeProduct();
+            }
+            this.toggle.disabled = false;
+        } catch (error) {
+            console.error('Error toggling product:', error);
+        }
+    }
+
+    async checkProduct() {
+        try {
+            const isProductInCart = await this.isProductInCart();
+            this.toggle.checked = isProductInCart;
+        } catch (error) {
+            console.error('Error checking product in cart:', error);
+        }
+    }
+
+    async isProductInCart() {
+        try {
+            const response = await fetch('/cart.js');
+            const cart = await response.json();
+
+            return cart.items.some(item => item.id === this.productID);
+        } catch (error) {
+            console.error('Error fetching cart:', error);
+            return false;
+        }
+    }
+
+    async addProduct() {
+        try {
+            const isProductInCart = await this.isProductInCart();
+            if (isProductInCart) {
+                return;
+            }
+            const response = await fetch('/cart/add.js', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    id: this.productID,
+                    quantity: 1,
+                }),
+            });
+
+            const data = await response.json();
+            publish(PUB_SUB_EVENTS.cartUpdate, { source: 'cart-items', cartData: data, variantId: this.productID });
+
+        } catch (error) {
+            console.error('Error adding product:', error);
+        }
+    }
+
+    async removeProduct() {
+        const productRemoveBtn = document.querySelector(`.drawer__cart-items-wrapper .cart-item[data-product-id="${this.productID}"] cart-remove-button`)
+        if (!productRemoveBtn) {
+            return;
+        }
+        productRemoveBtn.click();
+    }
+    async refreshCart() {
+        fetch(`${routes.cart_url}?section_id=cart-drawer`)
+        .then((response) => response.text())
+        .then(async(responseText) => {
+          const html = new DOMParser().parseFromString(responseText, 'text/html');
+          const selectors = ['cart-drawer-items', '.cart-drawer__footer','.cart-progress'];
+          for (const selector of selectors) {
+            const targetElement = document.querySelector(selector);
+            const sourceElement = html.querySelector(selector);
+            if (targetElement && sourceElement) {
+              targetElement.replaceWith(sourceElement);
+            }
+          }
+          const cartItemsCount = await this.howManyItemsInCart();
+          document.querySelectorAll('#cart-icon-bubble .cart-count-bubble span').forEach((el) => {
+            el.textContent = cartItemsCount;
+          });
+          this.init();
+        })
+        .catch((e) => {
+          console.error(e);
+        });
+
+        
+
+    }
+    async howManyItemsInCart() {
+        try {
+            const response = await fetch('/cart.js');
+            const cart = await response.json();
+            console.log( "cart",cart);
+            
+            return cart.item_count;
+        } catch (error) {
+            console.error('Error fetching cart:', error);
+            return false;
+        }
+    }
+}
+
+// Initialize on page load
+window.addEventListener('load', () => {
+    new UpsellProductToggle();
+});
+    document.addEventListener("cart:updated", (event) => {
+        setTimeout(() => {
+            new UpsellProductToggle();
+        }, 100);
+     
+    });
+</script>
+<style>
+    .ds-cart-product-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .ds-cart-product-toggle_content_wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 1rem;
+    }
+    img.ds-product-toggle_image {
+        width: 50px;
+        height: 50px;
+    }
+    .ds-cart-product-toggle_price,
+    .ds-cart-product-toggle_title{
+        margin: 0;
+    }
+    .ds-cart-product-toggle_price{
+        font-style: 14px;
+        color: {{settings.cart_drawer_product_upsell_color |  default: 'green'}};
+        font-weight: 700;
+    }
+    .ds-cart-product-toggle_title{
+        font-style: 14px;
+        color: rgb(18, 18, 18);
+        font-weight: 700;
+    }
+
+
+
+
+    .toggle-switch {
+      position: relative;
+      display: inline-block;
+      width: 40px;
+      height: 24px;
+      margin: 10px;
+    }
+    
+    /* Giriş stil */
+    .toggle-switch .toggle-input {
+      display: none;
+    }
+    
+    /* Anahtarın stilinin etrafındaki etiketin stil */
+    .toggle-switch .toggle-label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 40px;
+      height: 24px;
+      background-color: rgba(18, 18, 18, 0.2);
+      border-radius: 34px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    
+    /* Anahtarın yuvarlak kısmının stil */
+    .toggle-switch .toggle-label::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      top: 2px;
+      left: 2px;
+      background-color: #fff;
+      box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s;
+    }
+    
+    /* Anahtarın etkin hale gelmesindeki stil değişiklikleri */
+    .toggle-switch .toggle-input:checked + .toggle-label {
+      background-color: {{settings.cart_drawer_product_upsell_color |  default: 'green'}};
+    }
+    
+    .toggle-switch .toggle-input:checked + .toggle-label::before {
+      transform: translateX(16px);
+    }
+    
+
+
+</style>

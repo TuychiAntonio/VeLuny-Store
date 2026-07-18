@@ -1,0 +1,138 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "collapsible_content_mzEJi8": {
+      "type": "collapsible-content",
+      "blocks": {
+        "collapsible_row_gbVeRV": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does this shower head work with any standard shower setup?",
+            "icon": "none",
+            "row_content": "<p>Yes, it’s compatible with all standard shower arms and is easy to install without the need for tools or plumbing experience.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_C7jWVh": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What spray modes are included?",
+            "icon": "none",
+            "row_content": "<p>It features 6 adjustable modes, including power massage, gentle rainfall, mist, and more - so you can switch based on your mood or needs.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_yXeCzB": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often should I replace the filters?",
+            "icon": "none",
+            "row_content": "<p>For best results, we recommend replacing the filter every 2–3 months, depending on your water quality and usage. The set includes 4 extra filters.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_HzeCBM": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is the water pressure really strong?",
+            "icon": "none",
+            "row_content": "<p>Yes! The high-pressure design ensures a steady, powerful flow — even in low-pressure systems — giving you a more invigorating shower experience.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_3Pcd7Y": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I clean the shower head?",
+            "icon": "none",
+            "row_content": "<p>The silicone nozzles make it easy to clean — just wipe or rub them gently to remove any mineral buildup. The components can be rinsed periodically to maintain performance.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_gbVeRV",
+        "collapsible_row_C7jWVh",
+        "collapsible_row_yXeCzB",
+        "collapsible_row_HzeCBM",
+        "collapsible_row_3Pcd7Y"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Have a Question?",
+        "heading_size": "h2",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#ffffff",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#2e2a39",
+        "custom_contaner_colors_background": "#ffffff",
+        "custom_container_gradient_background": "",
+        "custom_contaner_colors_text": "#2e2a39"
+      }
+    },
+    "wd_section_divider_iHwPDJ": {
+      "type": "wd-section-divider",
+      "name": "t:sections.section-divider.name",
+      "settings": {
+        "divider_shape": "diagonal",
+        "divider_color_top": "#FFFFFF",
+        "divider_color_bottom": "#000000",
+        "padding_top_desktop": 40,
+        "padding_bottom_desktop": 40,
+        "padding_top_mobile": 40,
+        "padding_bottom_mobile": 40,
+        "margin_top": 0,
+        "margin_bottom": 0,
+        "max_height_desktop": 100,
+        "max_height_mobile": 100
+      }
+    },
+    "contact_form_XgcVXi": {
+      "type": "contact-form",
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "heading": "Contact Us",
+        "heading_size": "h2",
+        "button_full_width": true,
+        "color_scheme": "custom",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "custom_colors_background": "#000000",
+        "custom_gradient_background": "",
+        "custom_colors_text": "#fbfbfb",
+        "custom_colors_solid_button_background": "#fbfbfb",
+        "custom_colors_solid_button_text": "#000000"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "collapsible_content_mzEJi8",
+    "wd_section_divider_iHwPDJ",
+    "contact_form_XgcVXi"
+  ]
+}

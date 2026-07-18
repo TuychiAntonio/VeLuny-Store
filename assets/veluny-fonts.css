@@ -1,0 +1,49 @@
+/* VeLuny self-hosted fonts — source of truth: design-system.md §1.2
+   Files self-hosted in assets/ and served from Shopify's asset CDN,
+   not loaded via a Google Fonts <link> tag (avoids the render-blocking request). */
+
+@font-face {
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: swap;
+  src: url("veluny-fraunces-variable.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("veluny-quicksand-medium.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Quicksand";
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url("veluny-quicksand-semibold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("veluny-nunito-regular.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url("veluny-nunito-bold.woff2") format("woff2");
+}
+
+:root {
+  /* Fraunces is a variable font with an opsz axis — auto lets larger
+     display sizes pick up the warmer/rounder optical cut per the brand guide. */
+  font-optical-sizing: auto;
+}
