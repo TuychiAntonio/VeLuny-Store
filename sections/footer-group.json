@@ -13,6 +13,53 @@
   "sections": {
     "footer": {
       "type": "footer",
+      "blocks": {
+        "shop": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Shop",
+            "menu": "main-menu",
+            "width_desktop": 3,
+            "width_mobile": "2"
+          }
+        },
+        "about": {
+          "type": "text",
+          "settings": {
+            "heading": "About",
+            "subtext": "<p>VeLuny makes practical solutions for the everyday problems of parenting — starting with sleep that travels with you.</p>",
+            "width_desktop": 3,
+            "width_mobile": "2"
+          }
+        },
+        "help": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Help",
+            "menu": "footer",
+            "width_desktop": 3,
+            "width_mobile": "2"
+          }
+        },
+        "newsletter": {
+          "type": "email_signup",
+          "settings": {
+            "heading": "Stay in the loop",
+            "subtext": "<p>Occasional news, no spam. Unsubscribe any time.</p>",
+            "button_type": "solid",
+            "button_label": "Sign up",
+            "button_style_secondary": false,
+            "width_desktop": 3,
+            "width_mobile": "2"
+          }
+        }
+      },
+      "block_order": [
+        "shop",
+        "about",
+        "help",
+        "newsletter"
+      ],
       "settings": {
         "color_scheme": "veluny-ink",
         "enable_follow_on_shop": true,

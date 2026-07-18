@@ -65,12 +65,14 @@
   }
 }
 
-/* Text link — Ink, underline on hover only */
+/* Text link — Ink, underline on hover only. Uses the scheme's own
+   foreground color (not a hardcoded --color-ink) so links stay readable
+   on dark sections like the Ink footer, instead of going invisible. */
 .link,
 .customer a {
   font-family: var(--font-heading);
   font-weight: 500;
-  color: var(--color-ink);
+  color: rgb(var(--color-foreground));
   text-decoration: none;
 }
 

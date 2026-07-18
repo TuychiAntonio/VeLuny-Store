@@ -1,0 +1,47 @@
+/* VeLuny footer — design-system.md §3.8 */
+
+.footer__logo {
+  margin-bottom: var(--space-5);
+}
+
+.footer__logo img {
+  display: block;
+  width: 120px;
+  height: auto;
+}
+
+/* Accordion — native <details>, real toggle on mobile. A small script
+   (see footer.liquid) keeps `open` in sync with the 750px breakpoint,
+   since closed-<details> content can't be reliably forced visible by
+   CSS alone in current Chromium. At desktop the toggle just reads as a
+   static column heading: marker hidden, not clickable. */
+.footer-block__accordion-toggle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  list-style: none;
+}
+
+.footer-block__accordion-toggle::-webkit-details-marker {
+  display: none;
+}
+
+.footer-block__accordion-toggle .icon-caret {
+  transition: transform var(--duration-fast) ease;
+}
+
+.footer-block__accordion[open] > .footer-block__accordion-toggle .icon-caret {
+  transform: rotate(180deg);
+}
+
+@media screen and (min-width: 750px) {
+  .footer-block__accordion-toggle {
+    cursor: default;
+    pointer-events: none;
+  }
+
+  .footer-block__accordion-toggle .icon-caret {
+    display: none;
+  }
+}

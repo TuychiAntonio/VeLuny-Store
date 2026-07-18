@@ -1,5 +1,6 @@
 {% comment %}theme-check-disable UndefinedObject{% endcomment %}
 {{ 'section-footer.css' | asset_url | stylesheet_tag }}
+{{ 'veluny-footer.css' | asset_url | stylesheet_tag }}
 <link rel="stylesheet" href="{{ 'component-newsletter.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-list-payment.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -60,6 +61,21 @@
   -%}
     {%- unless only_empty_brand -%}
       <div class="footer__content-top page-width">
+        {%- comment -%}
+          Reversed (white) wordmark for the Ink footer — design-system.md
+          §3.8 / Brand Guide §5. Self-hosted as a theme asset (not a Files
+          image_picker) since the White logo variant isn't uploaded to the
+          store's Files library, only the Black one is.
+        {%- endcomment -%}
+        <div class="footer__logo">
+          <img
+            src="{{ 'veluny-logo-white.png' | asset_url }}"
+            alt="{{ shop.name | escape }}"
+            width="160"
+            height="80"
+            loading="lazy"
+          >
+        </div>
         {%- if section.blocks.size > 0 -%}
           {%- liquid
             if section.blocks.size == 9
@@ -76,10 +92,20 @@
                 class="footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %} footer-block--desktop-{{ block.settings.width_desktop }} footer-block--mobile-{{ block.settings.width_mobile }}"
                 {{ block.shopify_attributes }}
               >
-                {%- if block.settings.heading != blank -%}
-                  <h2 class="footer-block__heading">{{- block.settings.heading | escape -}}</h2>
-                {%- endif -%}
-
+                {%- comment -%}
+                  Native <details>/<summary> — collapsed by default (real
+                  accordion on mobile), forced open via CSS at desktop
+                  (veluny-footer.css) rather than a second JS toggle.
+                  design-system.md §3.8.
+                {%- endcomment -%}
+                <details class="footer-block__accordion">
+                  {%- if block.settings.heading != blank -%}
+                    <summary class="footer-block__heading footer-block__accordion-toggle">
+                      {{- block.settings.heading | escape -}}
+                      {% render 'ds-icon-caret' %}
+                    </summary>
+                  {%- endif -%}
+                  <div class="footer-block__accordion-body">
                 {%- case block.type -%}
                   {%- when '@app' -%}
                     {% render block %}
@@ -253,6 +279,8 @@
                       {%- endform -%}
                     </div>
                 {%- endcase -%}
+                  </div>
+                </details>
               </div>
             {%- endfor -%}
           </div>
@@ -526,6 +554,28 @@
 
   customElements.define('localization-form', LocalizationForm);
 {% endjavascript %}
+
+<script>
+  (function () {
+    // Footer columns are native <details> — a real accordion on mobile.
+    // At desktop they should just read as static column headings, but
+    // CSS alone can't reliably force a closed <details> open (modern
+    // Chromium hides closed content in a way plain `display` can't
+    // override), so this keeps the `open` attribute in sync with the
+    // same 750px breakpoint the rest of the theme treats as desktop.
+    var mql = window.matchMedia('(min-width: 750px)');
+    var accordions = document.querySelectorAll('.footer-block__accordion');
+
+    function syncFooterAccordions() {
+      accordions.forEach(function (el) {
+        el.open = mql.matches;
+      });
+    }
+
+    syncFooterAccordions();
+    mql.addEventListener('change', syncFooterAccordions);
+  })();
+</script>
 
 {% schema %}
 {
