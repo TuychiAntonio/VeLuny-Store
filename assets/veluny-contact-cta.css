@@ -1,0 +1,30 @@
+/* VeLuny "Talk to Us" — design-system.md §4.5. Deliberately minimal. */
+
+.veluny-contact-cta__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  max-width: 40rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.veluny-contact-cta__heading {
+  margin: 0;
+}
+
+.veluny-contact-cta__text {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--color-ink-70);
+}
+
+.veluny-contact-cta__text p {
+  margin: 0;
+}
+
+.veluny-contact-cta .button {
+  margin-top: var(--space-1);
+}

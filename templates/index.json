@@ -284,20 +284,16 @@
         "custom_contaner_colors_text": "#2e2a39"
       }
     },
-    "contact_form_FnmgyC": {
-      "type": "contact-form",
+    "veluny_contact_cta": {
+      "type": "veluny-contact-cta",
       "settings": {
-        "heading": "Contact Us",
-        "heading_size": "h1",
-        "button_full_width": true,
-        "color_scheme": "veluny-ink",
-        "padding_top": 12,
-        "padding_bottom": 36,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff"
+        "heading": "Still have a question?",
+        "text": "<p>We’re real people, happy to help — no hold music, no jargon, just a straight answer. Reach out any time.</p>",
+        "button_label": "Email Us",
+        "button_link": "mailto:hello@veluny.com",
+        "color_scheme": "veluny-warm-sand",
+        "padding_top": 96,
+        "padding_bottom": 96
       }
     }
   },
@@ -310,6 +306,6 @@
     "wd_section_divider_EgctyC",
     "c65117da-b894-43a0-8d4d-7bd214ab10a9",
     "collapsible_content_tmcWhN",
-    "contact_form_FnmgyC"
+    "veluny_contact_cta"
   ]
 }
