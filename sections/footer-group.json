@@ -15,10 +15,10 @@
       "type": "footer",
       "blocks": {
         "shop": {
-          "type": "link_list",
+          "type": "text",
           "settings": {
             "heading": "Shop",
-            "menu": "main-menu",
+            "subtext": "<p><a href=\"/\">Home</a></p><p><a href=\"/collections/all\">Catalog</a></p><p><a href=\"https://veluny.com/apps/17TRACK\">Track Your Order</a></p>",
             "width_desktop": 3,
             "width_mobile": "2"
           }
