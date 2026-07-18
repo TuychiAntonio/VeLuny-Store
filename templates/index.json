@@ -9,41 +9,16 @@
  */
 {
   "sections": {
-    "ds_slideshow_jhiiyq": {
-      "type": "ds-slideshow",
-      "blocks": {
-        "slide_J9PHEy": {
-          "type": "slide",
-          "settings": {
-            "image": "shopify://shop_images/68d6ae035e35cea218ec1f1a91f93149.jpg",
-            "mobile_image": "shopify://shop_images/68d6ae035e35cea218ec1f1a91f93149.jpg",
-            "heading": "Refresh Your Routine with Better Performance",
-            "heading_size": "h1",
-            "subheading": "Easy to install, simple to enjoy, made for comfort every day.",
-            "button_label": "Buy now",
-            "link": "shopify://products/6-function-high-pressure-shower-head",
-            "button_style_secondary": false,
-            "box_align": "middle-center",
-            "show_text_box": false,
-            "text_alignment": "center",
-            "image_overlay_opacity": 20,
-            "color_scheme": "background-1",
-            "text_alignment_mobile": "center"
-          }
-        }
-      },
-      "block_order": [
-        "slide_J9PHEy"
-      ],
+    "veluny_hero_video": {
+      "type": "veluny-hero-video",
       "settings": {
-        "layout": "full_bleed",
-        "slide_height": "medium",
-        "slider_visual": "counter",
-        "auto_rotate": true,
-        "change_slides_speed": 5,
-        "show_text_below": true,
-        "accessibility_info": "Slideshow about our brand",
-        "color_scheme": "background-1"
+        "heading": "<p>Naps that travel as well as you do.</p>",
+        "subheading": "<p>Clip it on, press play, breathe out.</p>",
+        "button_label": "Shop the Sound Machine",
+        "button_link": "shopify://collections/frontpage",
+        "color_scheme": "veluny-cream",
+        "padding_top": 0,
+        "padding_bottom": 48
       }
     },
     "ds_featured_collection_RG6kFR": {
@@ -327,7 +302,7 @@
     }
   },
   "order": [
-    "ds_slideshow_jhiiyq",
+    "veluny_hero_video",
     "ds_featured_collection_RG6kFR",
     "veluny_story_scroll",
     "image_banner_E693d3",

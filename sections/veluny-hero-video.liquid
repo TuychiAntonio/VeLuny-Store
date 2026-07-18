@@ -1,0 +1,203 @@
+{% comment %}
+  VeLuny hero — looping silent video (or GIF) beside a Fraunces headline,
+  in the "confident negative space" direction from the Apple reference.
+  design-system.md §4.1. Modeled on Dawn's sections/video.liquid schema
+  (video picker + fallback poster) but stripped to hero use — no
+  YouTube/Vimeo embed, no click-to-play deferred-media, since a hero
+  video should autoplay silently on load, not wait for a click.
+
+  PLACEHOLDER ASSET GAP: no video or poster image is assigned by default.
+  Real product-in-motion footage/photography is a content task, not
+  decided here — see the "Placeholder asset" note in this section's
+  settings in the theme editor.
+{% endcomment %}
+
+{{ 'veluny-hero-video.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .veluny-hero-{{ section.id }} {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .veluny-hero-{{ section.id }} {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="veluny-hero veluny-hero-{{ section.id }} color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    <div class="veluny-hero__grid">
+      <div class="veluny-hero__media">
+        {%- comment -%}
+          The poster/placeholder is always rendered as the base layer —
+          not passed as a video_tag parameter — so the fallback is
+          guaranteed to work even if the video fails to load or autoplay
+          is blocked, rather than depending on video_tag's own poster
+          support.
+        {%- endcomment -%}
+        <div class="veluny-hero__media-fallback">
+          {%- if section.settings.poster_image != blank -%}
+            {{
+              section.settings.poster_image
+              | image_url: width: 1500
+              | image_tag: sizes: '(min-width: 750px) 55vw, 100vw', widths: '375, 550, 750, 1100, 1500', loading: 'eager', fetchpriority: 'high'
+            }}
+          {%- else -%}
+            {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+        {%- if section.settings.video != blank -%}
+          <div class="veluny-hero__media-video">
+            {{
+              section.settings.video
+              | video_tag:
+                image_size: '1500x',
+                autoplay: true,
+                loop: true,
+                muted: true,
+                controls: false,
+                playsinline: true
+            }}
+          </div>
+        {%- endif -%}
+      </div>
+      <div class="veluny-hero__content">
+        {%- if section.settings.heading != blank -%}
+          <h1 class="veluny-hero__heading">{{ section.settings.heading }}</h1>
+        {%- endif -%}
+        {%- if section.settings.subheading != blank -%}
+          <div class="veluny-hero__subheading rte">{{ section.settings.subheading }}</div>
+        {%- endif -%}
+        {%- if section.settings.button_label != blank -%}
+          <a
+            {% if section.settings.button_link != blank %}
+              href="{{ section.settings.button_link }}"
+            {% else %}
+              role="link" aria-disabled="true"
+            {% endif %}
+            class="button"
+          >
+            {{ section.settings.button_label | escape }}
+          </a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "VeLuny Hero Video",
+  "tag": "section",
+  "class": "section",
+  "disabled_on": {
+    "groups": ["header", "footer"]
+  },
+  "settings": [
+    {
+      "type": "paragraph",
+      "content": "Placeholder asset: no real product footage/photography is assigned yet. Upload a looping silent video (or a GIF/still as the fallback image) before launch — see design-system.md §4.1 and §8 of the brand guide for the intended look (product in motion, warm natural light)."
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Video",
+      "info": "Plays silently on loop, no controls. Leave blank to show the fallback image alone (upload an animated GIF here for a GIF hero, since it will loop natively as an image)."
+    },
+    {
+      "type": "image_picker",
+      "id": "poster_image",
+      "label": "Fallback image (required)",
+      "info": "Shown while the video loads, if autoplay is blocked, or if no video is set. Never leave this blank."
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Naps that travel as well as you do.</p>"
+    },
+    {
+      "type": "richtext",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "<p>Clip it on, press play, breathe out.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button label",
+      "default": "Shop the Sound Machine"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    },
+    {
+      "type": "header",
+      "content": "Style"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "veluny-cream",
+          "label": "VeLuny Cream"
+        },
+        {
+          "value": "veluny-white",
+          "label": "VeLuny White"
+        },
+        {
+          "value": "veluny-warm-sand",
+          "label": "VeLuny Warm Sand"
+        }
+      ],
+      "default": "veluny-cream",
+      "label": "Color scheme"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 48
+    }
+  ],
+  "presets": [
+    {
+      "name": "VeLuny Hero Video"
+    }
+  ]
+}
+{% endschema %}

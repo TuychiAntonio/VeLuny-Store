@@ -1,0 +1,85 @@
+/* VeLuny hero video — design-system.md §4.1 */
+
+.veluny-hero__grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.veluny-hero__media {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  /* Fixed at the container level, independent of whatever asset is
+     uploaded — swapping the video/poster for a different-sized file
+     changes what fills the frame, never the frame itself. Cinematic
+     16:9 while full-width (mobile/tablet); taller 4:5 once it becomes
+     a narrower side column at desktop (see 990px breakpoint below). */
+  aspect-ratio: 16 / 9;
+}
+
+.veluny-hero__media-fallback,
+.veluny-hero__media-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.veluny-hero__media-fallback img,
+.veluny-hero__media-fallback svg,
+.veluny-hero__media-video video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.veluny-hero__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--space-3);
+  text-align: left;
+}
+
+.veluny-hero__heading {
+  margin: 0;
+  font-size: clamp(2.75rem, 6vw + 1rem, 5rem);
+  line-height: var(--leading-tight);
+}
+
+.veluny-hero__subheading {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--color-ink-70);
+  max-width: 40ch;
+}
+
+@media screen and (min-width: 990px) {
+  .veluny-hero__grid {
+    flex-direction: row;
+    align-items: center;
+    gap: 0;
+  }
+
+  .veluny-hero__media {
+    width: 58%;
+    flex: 0 0 58%;
+    aspect-ratio: 4 / 5;
+  }
+
+  .veluny-hero__content {
+    width: 42%;
+    flex: 0 0 42%;
+    /* Confident overlap over the media's edge, per the Apple-reference
+       "overlapping or beside" direction — not a separate, clean column. */
+    margin-left: -4rem;
+    padding: var(--space-5);
+    background-color: rgb(var(--color-background));
+    border-radius: var(--radius-lg);
+    position: relative;
+    z-index: 1;
+  }
+}
