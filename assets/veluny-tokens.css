@@ -33,26 +33,33 @@
   --font-heading-family: var(--font-display);
   --font-body-family: var(--font-body);
 
-  --text-h1: clamp(2.25rem, 4vw + 1rem, 3.5rem);
-  --text-h2: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
-  --text-h3: clamp(1.375rem, 1.5vw + 1rem, 1.75rem);
-  --text-h4: 1.25rem;
-  --text-body-lg: 1.125rem;
-  --text-body: 1rem;
-  --text-caption: 0.875rem;
+  /* rem values below are scaled for this theme's actual root font-size —
+     Dawn sets html { font-size: 10px } (base.css), not the browser's
+     default 16px, so a naive 1rem-assuming-16px value renders at 62.5%
+     of its intended size. Multiplying each by 1.6 (10px root) restores
+     the exact px values documented in design-system.md §1.2/§1.3 — e.g.
+     --text-body: 1.6rem is 16px here, the same way 1rem would be at a
+     16px root. Comments give the resulting px for reference. */
+  --text-h1: clamp(3.6rem, 4vw + 1.6rem, 5.6rem); /* 36–56px */
+  --text-h2: clamp(2.8rem, 2.5vw + 1.6rem, 4rem); /* 28–40px */
+  --text-h3: clamp(2.2rem, 1.5vw + 1.6rem, 2.8rem); /* 22–28px */
+  --text-h4: 2rem;       /* 20px */
+  --text-body-lg: 1.8rem; /* 18px */
+  --text-body: 1.6rem;    /* 16px */
+  --text-caption: 1.4rem; /* 14px */
 
   --leading-tight: 1.15;
   --leading-body: 1.6;
 
   /* 1.3 Spacing — 8px base unit */
-  --space-1: 0.5rem;
-  --space-2: 1rem;
-  --space-3: 1.5rem;
-  --space-4: 2rem;
-  --space-5: 3rem;
-  --space-6: 4.5rem;
-  --space-7: 6rem;
-  --space-8: 8rem;
+  --space-1: 0.8rem;  /* 8px */
+  --space-2: 1.6rem;  /* 16px */
+  --space-3: 2.4rem;  /* 24px */
+  --space-4: 3.2rem;  /* 32px */
+  --space-5: 4.8rem;  /* 48px */
+  --space-6: 7.2rem;  /* 72px */
+  --space-7: 9.6rem;  /* 96px */
+  --space-8: 12.8rem; /* 128px */
 
   /* 1.4 Radius, Shadow, Border */
   --radius-sm: 8px;

@@ -1,0 +1,15 @@
+/* VeLuny badges — design-system.md §3.6.
+   Colors are wired via the sale/sold-out badge color-scheme settings
+   (config/settings_data.json) rather than here — this file is shape and
+   type only. "New" and "Bestseller" aren't functional badge types in
+   this Dawn build yet (no product-tag-driven logic exists for them);
+   the veluny-ink / veluny-dusty-sky schemes are ready for whenever that
+   gets built, but building that detection logic wasn't part of this pass. */
+
+.badge {
+  border-radius: var(--radius-pill);
+  font-family: var(--font-heading);
+  font-weight: 500;
+  font-size: 1.2rem; /* 12px — this theme's root is 10px, not 16px */
+  letter-spacing: 0.04em;
+}

@@ -5,7 +5,7 @@
   flex-direction: column;
   align-items: center;
   gap: var(--space-2);
-  max-width: 40rem;
+  max-width: 64rem; /* 640px — readable measure; this theme's root is 10px, not 16px */
   margin: 0 auto;
   text-align: center;
 }

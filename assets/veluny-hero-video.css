@@ -45,7 +45,8 @@
 
 .veluny-hero__heading {
   margin: 0;
-  font-size: clamp(2.75rem, 6vw + 1rem, 5rem);
+  /* 44–80px oversized display size; this theme's root is 10px, not 16px */
+  font-size: clamp(4.4rem, 6vw + 1.6rem, 8rem);
   line-height: var(--leading-tight);
 }
 
@@ -75,7 +76,7 @@
     flex: 0 0 42%;
     /* Confident overlap over the media's edge, per the Apple-reference
        "overlapping or beside" direction — not a separate, clean column. */
-    margin-left: -4rem;
+    margin-left: -6.4rem; /* -64px; this theme's root is 10px, not 16px */
     padding: var(--space-5);
     background-color: rgb(var(--color-background));
     border-radius: var(--radius-lg);
