@@ -1,0 +1,38 @@
+/* VeLuny cart drawer — design-system.md §3.7.
+   Dawn's drawer already slides from the right (transform: translateX)
+   and keeps the footer pinned below a scrolling item list via flex
+   layout — neither needed rebuilding, just the token-level styling
+   below. Line items are re-themed (rounded image, spacing) rather than
+   rebuilt into literal .card markup, since the table structure here is
+   what Dawn's cart AJAX/quantity JS (cart.js, quantity-popover.js)
+   queries against — restructuring it risked breaking that wiring for a
+   cosmetic-only requirement.
+
+   Selectors below are scoped under the <cart-drawer> ancestor (rather
+   than bare .drawer__inner etc.) so they win on specificity regardless
+   of load order — header.liquid loads component-cart-drawer.css a
+   second time in <body>, after this file's own <head> position, so
+   equal-specificity rules would otherwise lose to that later copy. */
+
+cart-drawer .drawer__inner {
+  background-color: var(--color-cream);
+  box-shadow: var(--shadow-lift);
+  border: 0;
+  /* --radius-lg on the left edge only — this edge sits against the
+     viewport's right edge, so only the left corners are ever visible. */
+  border-radius: var(--radius-lg) 0 0 var(--radius-lg);
+}
+
+cart-drawer .drawer__footer {
+  background-color: var(--color-cream);
+  border-top: var(--border-hairline);
+}
+
+cart-drawer .cart-item__image {
+  border-radius: var(--radius-sm);
+  box-shadow: none;
+}
+
+cart-drawer .cart__checkout-button {
+  width: 100%;
+}
