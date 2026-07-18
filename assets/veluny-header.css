@@ -1,0 +1,29 @@
+/* VeLuny header overrides — source of truth: design-system.md §3.3
+   Loaded after base.css. Sticky/scroll-direction behavior itself is
+   Dawn's existing <sticky-header> element (header.liquid inline script) —
+   not touched. We only style off the .scrolled-past-header class it
+   already toggles, rather than adding a second scroll listener. */
+
+/* Hairline border-bottom appears only once the page has scrolled —
+   show_line_separator is off in section settings so Dawn's own
+   always-on border never renders; this is the only border source. */
+.scrolled-past-header .header-wrapper {
+  border-bottom: var(--border-hairline);
+}
+
+/* Cart count — Ink fill, Cream text, pill (not Dawn's scheme-driven circle) */
+.cart-count-bubble {
+  background-color: var(--color-ink);
+  color: var(--color-cream);
+  border-radius: var(--radius-pill);
+  min-width: 1.7rem;
+  width: auto;
+  padding: 0 0.4rem;
+}
+
+/* Mobile drawer — top-level category links in Fraunces; submenu, secondary
+   nav, and utility links (account/social) keep the default Quicksand/body font. */
+.menu-drawer__navigation:not(.menu-drawer__secondary-nav) > .menu-drawer__menu > li > .menu-drawer__menu-item {
+  font-family: var(--font-display);
+  font-weight: 500;
+}
