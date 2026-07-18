@@ -47,3 +47,17 @@
      display sizes pick up the warmer/rounder optical cut per the brand guide. */
   font-optical-sizing: auto;
 }
+
+/* Dawn applies --font-heading-family (Fraunces, per veluny-tokens.css) to
+   every heading level uniformly (h1-h5, .h0-.h5 share one rule in base.css)
+   — there's no built-in H1/H2 vs H3-H5 split. Per design-system.md §1.2,
+   only H1-H2 are display/Fraunces; H3-H5 are Quicksand. This rule must load
+   after base.css to win the cascade (equal specificity, last-in-source). */
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5 {
+  font-family: var(--font-heading);
+}

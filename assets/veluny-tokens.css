@@ -24,6 +24,15 @@
   --font-heading: "Quicksand", -apple-system, "Segoe UI", sans-serif;
   --font-body: "Nunito", -apple-system, "Segoe UI", sans-serif;
 
+  /* Dawn's own heading/body variables (theme.liquid, driven by the
+     type_header_font/type_body_font theme settings) are repointed here at
+     our self-hosted fonts rather than through Shopify's font_picker, so
+     Dawn's existing h1-h5/input/rte rules pick up the right families without
+     a second, redundant font-loading path. Settings are set to "sans-serif"
+     (Shopify's zero-download system stack) precisely so nothing else loads. */
+  --font-heading-family: var(--font-display);
+  --font-body-family: var(--font-body);
+
   --text-h1: clamp(2.25rem, 4vw + 1rem, 3.5rem);
   --text-h2: clamp(1.75rem, 2.5vw + 1rem, 2.5rem);
   --text-h3: clamp(1.375rem, 1.5vw + 1rem, 1.75rem);
