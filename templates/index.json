@@ -101,36 +101,63 @@
         "collapsible_row_UbLieg": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Does this shower head increase water pressure?",
+            "heading": "How long does the battery last?",
             "icon": "none",
-            "row_content": "<p>Yes! It’s designed to deliver strong, steady pressure — even in low-pressure systems — for a more refreshing and efficient shower.</p>",
+            "row_content": "<p>Up to 15 hours on a full charge — enough for naps, nights, and everything in between.</p>",
             "page": ""
           }
         },
         "collapsible_row_ggXypH": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "What spray modes are included?",
+            "heading": "How do I attach it to a stroller or crib?",
             "icon": "none",
-            "row_content": "<p>There are 6 adjustable spray settings, including power massage, rainfall, mist, and combination modes — so you can match your mood every time.</p>",
+            "row_content": "<p>It comes with a hoop clip that fastens onto strollers, cribs, and car seats — or just slip it into the diaper bag.</p>",
             "page": ""
           }
         },
         "collapsible_row_7z7MFf": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "How often should I replace the filters?",
+            "heading": "How many sounds does it have, and can I pick a favorite?",
             "icon": "none",
-            "row_content": "<p>We recommend replacing the filter every 2–3 months, depending on water quality and usage. The product includes 4 extra filters to get you started.</p>",
+            "row_content": "<p>12 sounds, including white noise, ocean waves, and heartbeat. Cycle through them with the sound button until you find the one that works.</p>",
             "page": ""
           }
         },
         "collapsible_row_R8yaen": {
           "type": "collapsible_row",
           "settings": {
-            "heading": "Is it easy to install?",
+            "heading": "Is the volume safe for my baby's ears?",
             "icon": "none",
-            "row_content": "<p>Absolutely! It’s a tool-free installation. Simply screw it onto your existing shower arm. Everything you need — hose, bracket, and washers — is included.</p>",
+            "row_content": "<p>Volume is adjustable — we recommend keeping it at a moderate level and placing the machine a safe distance from the crib, in line with standard safe-sleep guidance.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_timer01": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does it have a timer so it doesn't play all night?",
+            "icon": "none",
+            "row_content": "<p>Yes — press and hold the timer button and it will automatically shut off after the set time.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_charge01": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I charge it?",
+            "icon": "none",
+            "row_content": "<p>Through the USB charging port — no special cable needed.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_water01": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is it safe to use near water, like bath time?",
+            "icon": "none",
+            "row_content": "<p>No — please keep it away from water and wet conditions.</p>",
             "page": ""
           }
         }
@@ -139,15 +166,18 @@
         "collapsible_row_UbLieg",
         "collapsible_row_ggXypH",
         "collapsible_row_7z7MFf",
-        "collapsible_row_R8yaen"
+        "collapsible_row_R8yaen",
+        "collapsible_row_timer01",
+        "collapsible_row_charge01",
+        "collapsible_row_water01"
       ],
       "settings": {
         "caption": "",
-        "heading": "Have a question?",
+        "heading": "Frequently Asked Questions (FAQs)",
         "heading_size": "h1",
         "heading_alignment": "center",
         "layout": "none",
-        "color_scheme": "background-1",
+        "color_scheme": "veluny-cream",
         "container_color_scheme": "background-2",
         "open_first_collapsible_row": false,
         "image_ratio": "adapt",
@@ -169,7 +199,7 @@
         "text": "<p>We’re real people, happy to help — no hold music, no jargon, just a straight answer. Reach out any time.</p>",
         "button_label": "Email Us",
         "button_link": "mailto:hello@veluny.com",
-        "color_scheme": "veluny-warm-sand",
+        "color_scheme": "veluny-cream",
         "padding_top": 96,
         "padding_bottom": 96
       }
