@@ -1,0 +1,30 @@
+/* VeLuny forms & inputs — design-system.md §3.5.
+   Radius comes from the inputs_radius theme setting (8px = --radius-sm)
+   — Dawn's own mechanism produces that without a CSS override. Border
+   width and opacity are overridden directly: Shopify's inputs_border_*
+   range settings only land on step-5 (opacity) / integer-px (thickness)
+   values, so the exact 1.5px / --color-border's 12% aren't reachable
+   through the settings sliders alone. */
+:root {
+  --inputs-border-width: 1.5px;
+  --inputs-border-opacity: 0.12;
+}
+
+/* Ink focus ring, 2px, offset — not the browser default, and not tied to
+   the input's own border width like Dawn's default box-shadow trick. */
+.field__input:focus-visible,
+.select__select:focus-visible,
+.text-area:focus-visible,
+.quantity__input:focus-visible {
+  outline: 2px solid var(--color-ink);
+  outline-offset: 2px;
+  box-shadow: none;
+}
+
+/* Quantity stepper — pill, matching button radius language (not the
+   sharper --radius-sm the rest of this file's inputs use). */
+.quantity,
+.quantity:after,
+.quantity:before {
+  border-radius: var(--radius-pill);
+}
