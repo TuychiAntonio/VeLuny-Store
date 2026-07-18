@@ -95,128 +95,6 @@
         "padding_bottom": 72
       }
     },
-    "image_banner_E693d3": {
-      "type": "image-banner",
-      "settings": {
-        "image": "shopify://shop_images/6ac97d804b1ea4099f59246e9e9e27a2.jpg",
-        "image_overlay_opacity": 0,
-        "image_height": "medium",
-        "desktop_content_position": "middle-center",
-        "show_text_box": true,
-        "desktop_content_alignment": "center",
-        "color_scheme": "",
-        "image_behavior": "none",
-        "mobile_content_alignment": "center",
-        "stack_images_on_mobile": true,
-        "show_text_below": true
-      }
-    },
-    "rich_text_wFXHL7": {
-      "type": "rich-text",
-      "blocks": {
-        "heading_a4YJDY": {
-          "type": "heading",
-          "settings": {
-            "heading": "<p>About Us</p>",
-            "heading_size": "h1"
-          }
-        },
-        "text_CqmXnN": {
-          "type": "text",
-          "settings": {
-            "text": "<p>Our mission is simple — to elevate everyday self-care with thoughtfully designed, high-performance essentials. We’re proud to deliver comfort, quality, and cleaner water in every shower — because you deserve more than just “good enough.”</p>"
-          }
-        }
-      },
-      "block_order": [
-        "heading_a4YJDY",
-        "text_CqmXnN"
-      ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "custom",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 52,
-        "custom_colors_background": "#000000",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#fbfbfb",
-        "custom_colors_solid_button_background": "#dd1d1d",
-        "custom_colors_solid_button_text": "#ffffff"
-      }
-    },
-    "wd_section_divider_EgctyC": {
-      "type": "wd-section-divider",
-      "settings": {
-        "divider_shape": "diagonal",
-        "divider_color_top": "#ffffff",
-        "divider_color_bottom": "#000000",
-        "padding_top_desktop": 40,
-        "padding_bottom_desktop": 40,
-        "padding_top_mobile": 40,
-        "padding_bottom_mobile": 40,
-        "margin_top": 0,
-        "margin_bottom": 0,
-        "max_height_desktop": 100,
-        "max_height_mobile": 100
-      }
-    },
-    "c65117da-b894-43a0-8d4d-7bd214ab10a9": {
-      "type": "ds-testimonials",
-      "blocks": {
-        "template--18472095940937__c65117da-b894-43a0-8d4d-7bd214ab10a9-16798646670717cf42-1": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<h4>Pressure is amazing, and the different spray modes are actually useful. I feel cleaner and more relaxed after every shower.</h4>",
-            "author": "Mark M."
-          }
-        },
-        "column_8wmVkL": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<h4>Took 5 minutes to set up. The matte black finish gives my bathroom a <br/>modern look, and I love the flexible hose so much.</h4>",
-            "author": "Irina R."
-          }
-        },
-        "column_mMbBdd": {
-          "type": "column",
-          "settings": {
-            "title": "",
-            "text": "<h4>Within just a few days, I noticed less tightness and redness. I didn’t expect a shower upgrade to make such a difference, but I’m genuinely impressed</h4>",
-            "author": "Jenna T."
-          }
-        }
-      },
-      "block_order": [
-        "template--18472095940937__c65117da-b894-43a0-8d4d-7bd214ab10a9-16798646670717cf42-1",
-        "column_8wmVkL",
-        "column_mMbBdd"
-      ],
-      "settings": {
-        "title": "Why People Love It",
-        "heading_size": "h2",
-        "text": "<p>Our shower head is changing routines — with better pressure, cleaner water, and spa</p>",
-        "image_width": "half",
-        "image_ratio": "circle",
-        "columns_desktop": 3,
-        "slider_preview": true,
-        "column_alignment": "left",
-        "show_stars": true,
-        "stars_color": "#ffba00",
-        "show_quotes": false,
-        "quotes_color_scheme": "accent-1",
-        "background_style": "none",
-        "color_scheme": "accent-2",
-        "padding_top": 56,
-        "padding_bottom": 56,
-        "custom_colors_background": "#ffffff",
-        "custom_gradient_background": "",
-        "custom_colors_text": "#2e2a39"
-      }
-    },
     "collapsible_content_tmcWhN": {
       "type": "collapsible-content",
       "blocks": {
@@ -301,10 +179,6 @@
     "veluny_hero_video",
     "ds_featured_collection_RG6kFR",
     "veluny_story_scroll",
-    "image_banner_E693d3",
-    "rich_text_wFXHL7",
-    "wd_section_divider_EgctyC",
-    "c65117da-b894-43a0-8d4d-7bd214ab10a9",
     "collapsible_content_tmcWhN",
     "veluny_contact_cta"
   ]
