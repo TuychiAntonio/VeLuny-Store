@@ -1,0 +1,185 @@
+{% comment %}
+  VeLuny brand story — alternating scroll-reveal image/text blocks.
+  design-system.md §4.3. Reuses Dawn's existing IntersectionObserver
+  (assets/animations.js, class "scroll-trigger") rather than adding a new
+  observer — see assets/veluny-story-scroll.css for the reveal styling,
+  which is the only new piece of JS-adjacent behavior this section needed.
+
+  Block copy below is placeholder only, written to match the brand voice
+  (VeLuny-Brand-Guide.md §1, §2, §4) so the section previews on-brand —
+  final copy is a content task, not decided here.
+{% endcomment %}
+
+{{ 'veluny-story-scroll.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+<div class="veluny-story-scroll section-{{ section.id }}-padding color-{{ section.settings.color_scheme }} gradient">
+  <div class="page-width">
+    {%- for block in section.blocks -%}
+      {%- assign is_reversed = forloop.index0 | modulo: 2 -%}
+      <div
+        class="veluny-story-scroll__block scroll-trigger{% if is_reversed == 1 %} veluny-story-scroll__block--reverse{% endif %}"
+        {{ block.shopify_attributes }}
+      >
+        <div class="veluny-story-scroll__media">
+          {%- if block.settings.image != blank -%}
+            {{
+              block.settings.image
+              | image_url: width: 1500
+              | image_tag:
+                loading: 'lazy',
+                sizes: '(min-width: 750px) 50vw, 100vw',
+                widths: '375, 550, 750, 1100, 1500',
+                alt: block.settings.image_alt | default: block.settings.heading | escape
+            }}
+          {%- else -%}
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          {%- endif -%}
+        </div>
+        <div class="veluny-story-scroll__content">
+          {%- if block.settings.eyebrow != blank -%}
+            <p class="veluny-story-scroll__eyebrow">{{ block.settings.eyebrow | escape }}</p>
+          {%- endif -%}
+          {%- if block.settings.heading != blank -%}
+            <h2 class="veluny-story-scroll__heading">{{ block.settings.heading | escape }}</h2>
+          {%- endif -%}
+          {%- if block.settings.text != blank -%}
+            <div class="veluny-story-scroll__text rte">{{ block.settings.text }}</div>
+          {%- endif -%}
+        </div>
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "VeLuny Story Scroll",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "veluny-cream",
+          "label": "VeLuny Cream"
+        },
+        {
+          "value": "veluny-warm-sand",
+          "label": "VeLuny Warm Sand"
+        }
+      ],
+      "default": "veluny-cream",
+      "label": "Color scheme",
+      "info": "Cream or Warm Sand only — keep accent colors (Dusty Sky, Blush Nap) out of this section."
+    },
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Top padding",
+      "default": 72
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "Bottom padding",
+      "default": 72
+    }
+  ],
+  "blocks": [
+    {
+      "type": "story_block",
+      "name": "Story block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image alt text",
+          "info": "Falls back to the heading if left blank."
+        },
+        {
+          "type": "text",
+          "id": "eyebrow",
+          "label": "Eyebrow",
+          "default": "Eyebrow text"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text",
+          "default": "<p>Short paragraph.</p>"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "VeLuny Story Scroll",
+      "blocks": [
+        {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "The Problem",
+            "heading": "Every new place threatens the nap.",
+            "text": "<p>A stroller walk. A grandparent’s living room. A hotel room, the car. The second you leave the house, you lose the sound and rhythm your baby’s used to sleeping in — and the nap goes with it.</p>"
+          }
+        },
+        {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "The Fix",
+            "heading": "Clip it on, press play, breathe out.",
+            "text": "<p>VeLuny clips onto a stroller, a crib rail, a diaper bag — anywhere you need it. Twenty soothing sounds, a timer that knows when to stop, and enough battery to outlast the whole outing.</p>"
+          }
+        },
+        {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "What's Next",
+            "heading": "Sleep is where we started.",
+            "text": "<p>This is VeLuny’s first solution, not our only one. We built the sound machine to solve one real problem completely — and we’re just getting started on the next.</p>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

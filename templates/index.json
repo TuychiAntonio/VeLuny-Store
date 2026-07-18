@@ -81,6 +81,45 @@
         "custom_colors_solid_button_text": "#ffffff"
       }
     },
+    "veluny_story_scroll": {
+      "type": "veluny-story-scroll",
+      "blocks": {
+        "story_block_1": {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "The Problem",
+            "heading": "Every new place threatens the nap.",
+            "text": "<p>A stroller walk. A grandparent’s living room. A hotel room, the car. The second you leave the house, you lose the sound and rhythm your baby’s used to sleeping in — and the nap goes with it.</p>"
+          }
+        },
+        "story_block_2": {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "The Fix",
+            "heading": "Clip it on, press play, breathe out.",
+            "text": "<p>VeLuny clips onto a stroller, a crib rail, a diaper bag — anywhere you need it. Twenty soothing sounds, a timer that knows when to stop, and enough battery to outlast the whole outing.</p>"
+          }
+        },
+        "story_block_3": {
+          "type": "story_block",
+          "settings": {
+            "eyebrow": "What's Next",
+            "heading": "Sleep is where we started.",
+            "text": "<p>This is VeLuny’s first solution, not our only one. We built the sound machine to solve one real problem completely — and we’re just getting started on the next.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "story_block_1",
+        "story_block_2",
+        "story_block_3"
+      ],
+      "settings": {
+        "color_scheme": "veluny-cream",
+        "padding_top": 72,
+        "padding_bottom": 72
+      }
+    },
     "image_banner_E693d3": {
       "type": "image-banner",
       "settings": {
@@ -290,6 +329,7 @@
   "order": [
     "ds_slideshow_jhiiyq",
     "ds_featured_collection_RG6kFR",
+    "veluny_story_scroll",
     "image_banner_E693d3",
     "rich_text_wFXHL7",
     "wd_section_divider_EgctyC",

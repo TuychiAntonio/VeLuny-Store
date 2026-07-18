@@ -1,0 +1,96 @@
+/* VeLuny brand story scroll — design-system.md §4.3 */
+
+.veluny-story-scroll {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+.veluny-story-scroll__block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.veluny-story-scroll__media,
+.veluny-story-scroll__content {
+  width: 100%;
+}
+
+.veluny-story-scroll__media img,
+.veluny-story-scroll__media svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+}
+
+.veluny-story-scroll__eyebrow {
+  margin: 0 0 var(--space-1);
+  font-family: var(--font-heading);
+  font-size: var(--text-caption);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-ink-70);
+}
+
+.veluny-story-scroll__heading {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-h2);
+  line-height: var(--leading-tight);
+}
+
+.veluny-story-scroll__text {
+  font-family: var(--font-body);
+  font-size: var(--text-body-lg);
+  line-height: var(--leading-body);
+  color: var(--color-ink-70);
+}
+
+.veluny-story-scroll__text p {
+  margin: 0;
+}
+
+@media screen and (min-width: 750px) {
+  .veluny-story-scroll__block {
+    flex-direction: row;
+    gap: var(--space-6);
+  }
+
+  .veluny-story-scroll__block--reverse {
+    flex-direction: row-reverse;
+  }
+
+  .veluny-story-scroll__media,
+  .veluny-story-scroll__content {
+    width: 50%;
+  }
+}
+
+/* Scroll reveal — reuses Dawn's existing IntersectionObserver
+   (assets/animations.js toggles .scroll-trigger--offscreen; see
+   design-system.md §4.3). Base rule is the reduced-motion-safe fallback:
+   opacity only. The translateY enhancement is added only when the user
+   has not requested reduced motion. */
+.veluny-story-scroll .scroll-trigger {
+  opacity: 0;
+  transition: opacity var(--duration-slow) var(--ease-soft);
+}
+
+.veluny-story-scroll .scroll-trigger:not(.scroll-trigger--offscreen) {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .veluny-story-scroll .scroll-trigger {
+    transform: translateY(24px);
+    transition: opacity var(--duration-slow) var(--ease-soft),
+      transform var(--duration-slow) var(--ease-soft);
+  }
+
+  .veluny-story-scroll .scroll-trigger:not(.scroll-trigger--offscreen) {
+    transform: translateY(0);
+  }
+}
